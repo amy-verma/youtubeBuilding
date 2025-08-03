@@ -1,6 +1,6 @@
 const VideoCard=({info})=>{
     if(!info) return null
-    console.log(info)
+    // console.log(info)
     const {snippet,statistics}=info;
     const {title,channelTitle,thumbnails}=snippet
     const viewCount = statistics?.viewCount;
@@ -17,4 +17,15 @@ const VideoCard=({info})=>{
         </div>
     )
 }
+
+export const ADVideoCard=({info})=>{
+    return (
+        <div className="p1 m-1 border border-red-900">
+        <VideoCard info={info}/>
+        </div>
+    )
+}
+
+
+
 export default VideoCard

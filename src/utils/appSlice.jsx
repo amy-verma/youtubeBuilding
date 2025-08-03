@@ -11,7 +11,7 @@ const appSlice=createSlice({
                 state.isMenuOpen=!state.isMenuOpen;
             },
             closeMenu:(state)=>{
-                state.isMenuOpen=false
+                state.isMenuOpen=false;
             },
          
     }
