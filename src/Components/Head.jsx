@@ -1,12 +1,14 @@
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { toggleMenu } from "../utils/appSlice"
 import { useEffect, useState } from "react"
 import { YOUTUBE_SEARCH_API } from "../utils/constants"
+import { cacheResults } from "../utils/searchSlice"
 
 const Head=()=>{
     const [searchQuery,setSearchQuery]=useState("")
     const [suggestion,setSuggestion]=useState([])
     const [showSuggestion,setShowSuggestion]=useState(false)
+    const searchCache=useSelector((store)=>store.search)
     const dispatch=useDispatch()
 
     const toggleMenuHandler=()=>{
@@ -14,8 +16,13 @@ const Head=()=>{
     }
 
     useEffect(()=>{
-        let timer=  setTimeout(()=>{
-            getSearchSuggestion()
+        let timer=setTimeout(()=>{
+            if(searchCache[searchQuery]){
+                setSuggestion(searchCache[searchQuery])
+            }else{
+                getSearchSuggestion()
+            }
+         
         },200)
         
         //Make an api call after every key press
@@ -48,9 +55,12 @@ const Head=()=>{
         console.log(response[0]);
         setSuggestion(response[1])
 
+
+        dispatch(cacheResults({
+         [searchQuery]:response[1],
+        }))
     }
 
-    
     return (
         <div className="grid grid-flow-col p-5 m-2 shadow-lg">
             <div className="flex col-span-1 " >

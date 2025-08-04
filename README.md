@@ -6,4 +6,13 @@
    - Routing (react-router-dom)
    - bundler
    - testing linrary- jest
+
+
+   caching
+  - create Slice
+
+  Optimized Search
+  - This search is using live API
+  - This search is using debouncing
+  - This search is using caching
    
