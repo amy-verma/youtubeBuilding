@@ -17,3 +17,4 @@
   - This search is using caching
    
    Next-create n level nested coments--
+   - components inside components-i:e recurssion of caching
