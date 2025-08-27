@@ -18,3 +18,17 @@
    
    Next-create n level nested coments--
    - components inside components-i:e recurssion of caching
+
+Implement live chat
+   Live Chat
+Challanges
+- Get Data Live
+- Update the UI
+
+DATA(live)
+-web sockets- Two way data -UI to Server(no regular interval)
+               (Trading apps,whatapp)
+
+
+- API Polling- Unidirectional- Server to Ui(with interval)
+               (Gmail,CrickBuzz,Soccer)

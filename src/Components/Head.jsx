@@ -49,7 +49,7 @@ const Head=()=>{
      */
 
     const getSearchSuggestion=async()=>{
-        console.log("API-Call",searchQuery);
+        // console.log("API-Call",searchQuery);
         const data=await fetch(YOUTUBE_SEARCH_API+searchQuery);
          // ,{
             // method:"GET",
@@ -93,7 +93,10 @@ const Head=()=>{
             </div>}
             </div>
             <div className="col-span-1">
-                <img  className="h-8" alt="user-icon" src="https://static.vecteezy.com/system/resources/previews/000/550/731/original/user-icon-vector.jpg" />
+                <img  className="h-8"
+                 alt="user-icon" 
+                 src="https://static.vecteezy.com/system/resources/previews/000/550/731/original/user-icon-vector.jpg"
+                  />
             </div>
         </div>
     )
