@@ -3,48 +3,48 @@ const CommentsContainer=()=>{
         {
         name:"Amit Verma",
         text:"Lorem Ipsum",
-        reply:[
+        replies:[
             {
         name:"Sumit Verma",
         text:"Lorem Ipsum",
-        reply:[],
+        replies:[],
         }
     ]
         },
         {
         name:"Amit Verma",
         text:"Lorem Ipsum",
-        reply:[{
+        replies:[{
         name:"Amit Verma",
         text:"Lorem Ipsum",
-        reply:[]
+        replies:[]
         },]
         },
         {
         name:"Amit Verma",
         text:"Lorem Ipsum",
-        reply:[{
+        replies:[{
         name:"Amit Verma",
         text:"Lorem Ipsum",
-        reply:[]
+        replies:[]
         },]
         },
         {
         name:"Amit Verma",
         text:"Lorem Ipsum",
-        reply:[{
+        replies:[{
         name:"Amit Verma",
         text:"Lorem Ipsum",
-        reply:[{
+        replies:[{
         name:"Amit Verma",
         text:"Lorem Ipsum",
-        reply:[{
+        replies:[{
         name:"Amit Verma",
         text:"Lorem Ipsum",
-        reply:[{
+        replies:[{
         name:"Amit Verma",
         text:"Lorem Ipsum",
-        reply:[]
+        replies:[]
         },]
         },]
         },]
@@ -69,7 +69,23 @@ const CommentsContainer=()=>{
 
     const CommentsList=({comments})=>{
         return  comments.map((comment,index)=>(
-                <Comment key={index} data={comment}/>
+            <div  key={index}>
+                <Comment data={comment}/>
+                
+                <div className="pl-5 border border-l-black ml-5">
+
+                     {/* <Comment key={index} data={comment}/>//these replies was the list of comments
+                     <Comment key={index} data={comment}/>
+                     <Comment key={index} data={comment}/> */}
+
+                     {/* //so here the recursion in components so same component inside the componenet
+                     // so this is n level testing
+                     
+                     */}
+                     <CommentsList comments={comment.replies}/>
+                </div>
+            </div>
+                
         ))
     }
 
