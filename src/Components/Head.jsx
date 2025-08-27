@@ -49,8 +49,14 @@ const Head=()=>{
      */
 
     const getSearchSuggestion=async()=>{
-           console.log("API-Call",searchQuery);
+        console.log("API-Call",searchQuery);
         const data=await fetch(YOUTUBE_SEARCH_API+searchQuery);
+         // ,{
+            // method:"GET",
+            // headers:{
+            //     "Access-Control-Allow-Origin": true
+            // //    " Access-Control-Allow-Origin":" https://localhost:5173"
+            // }
         const response=await data.json()
         console.log(response[0]);
         setSuggestion(response[1])
@@ -69,7 +75,13 @@ const Head=()=>{
             </div>
             <div className="col-span-10 px-10">
                 <div>
-                <input value={searchQuery} onFocus={()=>setShowSuggestion(true)} onBlur={()=>setShowSuggestion(false)} onChange={(e)=>setSearchQuery(e.target.value)} className="px-5 w-1/2 border border-gray-400 p-2 rounded-l-full"  type="text" placeholder="Search Here" />
+                <input value={searchQuery} 
+                onFocus={()=>setShowSuggestion(true)} 
+                onBlur={()=>setShowSuggestion(false)}
+                 onChange={(e)=>setSearchQuery(e.target.value)} 
+                 className="px-5 w-1/2 border border-gray-400 p-2 rounded-l-full"  
+                 type="text"
+                  placeholder="Search Here" />
                 <button className="border border-gray-400  px-5 py-2 rounded-r-full bg-gray-100 ">Search</button>
             </div>
            {showSuggestion && <div className="fixed px-5 py-2 bg-white w-[37rem] shadow-lg rounded-lg border-gray-100">
